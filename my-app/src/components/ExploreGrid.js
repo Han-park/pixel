@@ -24,7 +24,7 @@ export default function ExploreGrid(props){
             <Grid container spacing={2} elevation={1} >
 
                 <Grid item md={(md)} sm={(sm)} xs={(xs)}>
-                    <GridContent />
+                    <GridContent className="GridContentBox"/>
                 </Grid>
 
                 <Grid item md={(md)} sm={(sm)} xs={(xs)}>

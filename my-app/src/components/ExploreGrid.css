@@ -20,3 +20,9 @@
     /* elevation: 10; */
     border: 1px solid grey;
 }
+
+.GridContentBox:hover{
+    transition: transform 400ms;
+    transform: translateY(-14px);
+    box-shadow: 0 14px 28px grey;
+}

@@ -25,7 +25,7 @@ export default function GridContent() {
   };
 
   return (
-    <Card >
+    <Card className="GridContentBox" elevation={0} >
       <CardMedia
         component="img"
         height="140"
