@@ -11,7 +11,6 @@ import Stack from '@mui/material/Stack';
 
 import Avatar from '@mui/material/Avatar';
 
-import "./GridContent.css";
 import Image from "../imgExample/frog.png";
 import Song from "../imgExample/songvatar.png";
 

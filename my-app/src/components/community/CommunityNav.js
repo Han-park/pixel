@@ -12,32 +12,10 @@ import Divider from '@mui/material/Divider';
 import InboxIcon from '@mui/icons-material/Inbox';
 import DraftsIcon from '@mui/icons-material/Drafts';
 
+
 export default function CommunityNav(){
     return(
-        // <div className="Trending">
-            // <Box className="navBox">
-            //   <Typography variant="h6" sx={{fontSize: 16}}>
-            //     <Link href="#" underline="none" color="inherit">
-            //       Notice
-            //     </Link>
-            //   </Typography>
-            //   <Typography variant="h6">
-            //     <Link href="#" underline="none" color="inherit">
-            //       Members
-            //     </Link>
-            //   </Typography>
-            //   <Typography variant="h6">
-            //     <Link href="#" underline="none" color="inherit">
-            //       Award
-            //     </Link>
-            //   </Typography>
-            //   <Typography variant="h6">
-            //     <Link href="#" underline="none" color="inherit">
-            //       About
-            //     </Link>
-            //   </Typography>
-            // </Box>
-
+     
             <Box sx={{ bgcolor: 'background.paper' }} className="navBox">
             <nav aria-label="secondary mailbox folders">
               <List>
@@ -48,17 +26,20 @@ export default function CommunityNav(){
                   </ListItemButton>
                 </ListItem>
 
-                <ListItem disablePadding>
-                  <ListItemButton component="a" href="#anchorB" sx={{height: 35, borderRadius: 3}}>
-                    <ListItemText primary="Award" />
-                  </ListItemButton>
-                </ListItem>
 
                 <ListItem disablePadding>
                   <ListItemButton component="a" href="#anchorC" sx={{height: 35, borderRadius: 3}}>
                     <ListItemText primary="Members" />
                   </ListItemButton>
                 </ListItem>
+
+
+                <ListItem disablePadding>
+                  <ListItemButton component="a" href="#anchorB" sx={{height: 35, borderRadius: 3}}>
+                    <ListItemText primary="Award" />
+                  </ListItemButton>
+                </ListItem>
+  
 
                 <ListItem disablePadding>
                   <ListItemButton component="a" href="#anchorD" sx={{height: 35, borderRadius: 3}}>

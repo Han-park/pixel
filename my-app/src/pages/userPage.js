@@ -13,11 +13,14 @@ import UserTab from "../components/user/userTab";
 // import Paper from '@mui/material/Paper';
 import BottomNav from "../components/BottomNav";
 
+import GlobalStyles from '@mui/material/GlobalStyles';
+
 import "./userPage.css";
 
 export default function UserPage(){
     return(
-        <div>   
+        <div>
+        <GlobalStyles styles={{ body: { backgroundColor: "#F0F2F5" } }} />   
            <Header />
         <div>
         <div className="userBio">

@@ -1,7 +1,7 @@
 import React from "react";
 import "./Tags.css";
 import Box from '@mui/material/Box';
-import TagContent from "./TagContent";
+import TagContent from "../TagContent";
 import Link from '@mui/material/Link';
 
 import Divider from '@mui/material/Divider';

@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import Navs from "../components/CommunityNav";
-import CommunityFeed from "../components/CommunityFeed";
+import Navs from "../components/community/CommunityNav";
+import CommunityFeed from "../components/community/CommunityFeed";
 
 import Header from "../components/Header2";
 import Container from '@mui/material/Container';
@@ -13,11 +13,13 @@ import Paper from '@mui/material/Paper';
 import BottomNav from "../components/BottomNav";
 
 
+import GlobalStyles from '@mui/material/GlobalStyles';
   
 
 export default function CommunityPage(props){
     return(
-        <div>   
+        <div>
+         <GlobalStyles styles={{ body: { backgroundColor: "#F0F2F5" } }} />          
            <Header />
         <div>
         <Container maxWidth="lg" className="container">

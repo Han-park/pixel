@@ -24,5 +24,5 @@
 .GridContentBox:hover{
     transition: transform 400ms;
     transform: translateY(-14px);
-    box-shadow: 0 14px 28px grey;
+    box-shadow: 0 8px 16px grey;
 }

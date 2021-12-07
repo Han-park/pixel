@@ -113,7 +113,7 @@ export default function AlignItemsList() {
                 October 22
               </Typography>
         </ListItemButton>
-        {/* <Divider component="li" /> */}
+        <Divider component="li" />
       
       
       

@@ -1,7 +1,6 @@
 import * as React from 'react';
 
 import Feed from "../components/main/Feed";
-import Trending from "../components/main/Trending";
 
 import Header from "../components/Header2";
 
@@ -13,8 +12,10 @@ import Box from '@mui/material/Box';
 
 import MainMobileHeader from '../components/main/MainMobileHeader';
 import "./Pages.css";
+import PostContent from "../components/PostContent";
 
 import GlobalStyles from '@mui/material/GlobalStyles';
+import { maxWidth } from '@mui/system';
 
 
 
@@ -23,7 +24,6 @@ import GlobalStyles from '@mui/material/GlobalStyles';
 export default function MainPage(props){
     return(
 
-        // <ThemeProvider theme={theme}>
 
         <div>
 
@@ -35,15 +35,15 @@ export default function MainPage(props){
         <div className="MainMobileHeader">
             <MainMobileHeader />
         </div>
+
         <Container maxWidth="md" className="container">
-                <div className="feedContainer">
-                    <Feed maxWidth={610} marginTop={-2}/>
+                <div className="feedContainer" >
+                      <PostContent nLike={12} nComment={5} nBookmark={1} sx={{mt: 10}}/>
+                      
                 </div>
                 
-                <div className="trendingContainer">
-                    <Trending />
-                </div>
         </Container>
+
         <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3} className="bottom">
         <BottomNav />
         </Paper>

@@ -1,7 +1,9 @@
 import * as React from 'react';
 // import Box from '@mui/material/Box';
 import "./CommunityFeed.css";
-import Award from "./community/Award";
+import Award from "./Award";
+import MembersGrid from './MembersGrid';
+
 
 export default function CommunityFeed() {
   return (
@@ -12,6 +14,12 @@ export default function CommunityFeed() {
    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper. Est ultricies integer quis auctor elit. Donec et odio pellentesque diam volutpat commodo sed egestas egestas. Eget magna fermentum iaculis eu non diam phasellus vestibulum. Tortor at risus viverra adipiscing at in tellus integer. Consectetur adipiscing elit pellentesque habitant morbi tristique senectus et netus. Donec ultrices tincidunt arcu non sodales neque. Consectetur libero id faucibus nisl tincidunt eget nullam non nisi. Aenean vel elit scelerisque mauris pellentesque pulvinar pellentesque habitant. Purus in massa tempor nec feugiat nisl. Vehicula ipsum a arcu cursus. Tristique nulla aliquet enim tortor at auctor. Diam volutpat commodo sed egestas egestas fringilla phasellus faucibus. Diam sollicitudin tempor id eu nisl. Est placerat in egestas erat imperdiet sed. Diam volutpat commodo sed egestas egestas. Vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt lobortis. Netus et malesuada fames ac turpis. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper. Est ultricies integer quis auctor elit. Donec et odio pellentesque diam volutpat commodo sed egestas egestas. Eget magna fermentum iaculis eu non diam phasellus vestibulum. Tortor at risus viverra adipiscing at in tellus integer. Consectetur adipiscing elit pellentesque habitant morbi tristique senectus et netus. Donec ultrices tincidunt arcu non sodales neque. Consectetur libero id faucibus nisl tincidunt eget nullam non nisi. Aenean vel elit scelerisque mauris pellentesque pulvinar pellentesque habitant. Purus in massa tempor nec feugiat nisl. Vehicula ipsum a arcu cursus. Tristique nulla aliquet enim tortor at auctor. Diam volutpat commodo sed egestas egestas fringilla phasellus faucibus. Diam sollicitudin tempor id eu nisl. Est placerat in egestas erat imperdiet sed. Diam volutpat commodo sed egestas egestas. Vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt lobortis. Netus et malesuada fames ac turpis.
    </div>
 
+      <a id="anchorC"></a>
+
+    <div className="communityBody divC"> <h3>Members</h3> 
+    <MembersGrid/>
+    </div>
+
         <a id="anchorB"></a>
 
       <div className="communityBody divB"> <h3>Award</h3>
@@ -19,11 +27,7 @@ export default function CommunityFeed() {
    
    </div>
 
-         <a id="anchorC"></a>
-
-      <div className="communityBody divC"> <h3>Members</h3> 
-   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper. Est ultricies integer quis auctor elit. Donec et odio pellentesque diam volutpat commodo sed egestas egestas. Eget magna fermentum iaculis eu non diam phasellus vestibulum. Tortor at risus viverra adipiscing at in tellus integer. Consectetur adipiscing elit pellentesque habitant morbi tristique senectus et netus. Donec ultrices tincidunt arcu non sodales neque. Consectetur libero id faucibus nisl tincidunt eget nullam non nisi. Aenean vel elit scelerisque mauris pellentesque pulvinar pellentesque habitant. Purus in massa tempor nec feugiat nisl. Vehicula ipsum a arcu cursus. Tristique nulla aliquet enim tortor at auctor. Diam volutpat commodo sed egestas egestas fringilla phasellus faucibus. Diam sollicitudin tempor id eu nisl. Est placerat in egestas erat imperdiet sed. Diam volutpat commodo sed egestas egestas. Vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt lobortis. Netus et malesuada fames ac turpis. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper. Est ultricies integer quis auctor elit. Donec et odio pellentesque diam volutpat commodo sed egestas egestas. Eget magna fermentum iaculis eu non diam phasellus vestibulum. Tortor at risus viverra adipiscing at in tellus integer. Consectetur adipiscing elit pellentesque habitant morbi tristique senectus et netus. Donec ultrices tincidunt arcu non sodales neque. Consectetur libero id faucibus nisl tincidunt eget nullam non nisi. Aenean vel elit scelerisque mauris pellentesque pulvinar pellentesque habitant. Purus in massa tempor nec feugiat nisl. Vehicula ipsum a arcu cursus. Tristique nulla aliquet enim tortor at auctor. Diam volutpat commodo sed egestas egestas fringilla phasellus faucibus. Diam sollicitudin tempor id eu nisl. Est placerat in egestas erat imperdiet sed. Diam volutpat commodo sed egestas egestas. Vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt lobortis. Netus et malesuada fames ac turpis.
-   </div>
+        
 
         <a id="anchorD"></a>
 

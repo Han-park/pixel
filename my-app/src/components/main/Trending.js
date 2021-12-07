@@ -1,8 +1,9 @@
 import React from "react";
 import "./Trending.css";
 import Box from '@mui/material/Box';
-import TrendingComponent from "./TrendingComponent";
+import TrendingComponent from "../TrendingComponent";
 import Link from '@mui/material/Link';
+import { Typography } from "@mui/material";
 
 export default function Trending(){
     return(
@@ -10,7 +11,7 @@ export default function Trending(){
             <Box sx={{ display: {
                 // sm: 'none',
                 md: 'block' } }} className="Trending">
-                <h3 className="title">최근 덧글</h3>
+                <Typography variant="h5" className="title"><b>최근 덧글</b></Typography>
                 <TrendingComponent/>
                 <Link href="#" color="#349BF0" underline="none"
                     variant="body2"

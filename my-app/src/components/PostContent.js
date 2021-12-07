@@ -7,6 +7,7 @@ import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
 import Collapse from '@mui/material/Collapse';
 import Avatar from '@mui/material/Avatar';
+import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import { red } from '@mui/material/colors';
@@ -15,6 +16,10 @@ import ModeCommentOutlinedIcon from '@mui/icons-material/ModeCommentOutlined';
 import IosShareOutlinedIcon from '@mui/icons-material/IosShareOutlined';
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+import Stack from '@mui/material/Stack';
+
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
 
 import Link from '@mui/material/Link';
 
@@ -23,30 +28,39 @@ import Divider from '@mui/material/Divider';
 import Image from "../imgExample/imacimg.png";
 import Hyo from "../imgExample/hyovatar.png";
 
+import Comments from "./Comments";
+
+
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
-  return <IconButton {...other} />;
+  return <Button {...other} />;
 })(({ theme, expand }) => ({
   display: !expand ? 'inline' : 'none',
 //   marginLeft: 'auto',
-  transition: theme.transitions.create('transform', {
-    duration: theme.transitions.duration.shortest,
-  }),
 }));
 
-export default function RecipeReviewCard() {
-  const [expanded, setExpanded] = React.useState(false);
+const Item = styled(Paper)(({ theme }) => ({
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: 'center',
+  color: theme.palette.text.secondary,
+}));
+
+export default function RecipeReviewCard(props) {
+  const [expanded, setExpanded] = React.useState(true);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
 
   return (
-    <Card sx={{ 
-        // maxWidth: 345 
-        minHeight: (!expanded) ? 780 : 1500,
-        }}
-        elevation="0"
+    <Box>
+    <Paper sx={{
+        borderRadius: 2,
+        margin: 1,
+        mt: 9,
+        p: 2}}
+        elevation="1"
         >
       <CardHeader sx={{marginTop: 2, marginBottom: -2}}
         avatar={
@@ -56,7 +70,7 @@ export default function RecipeReviewCard() {
             효림 ∙ 2h
         </Typography>}
       />
-            <CardContent>
+        <CardContent>
         <Typography variant="h5" color="text.primary">
         iMAC적응기(1) 아이맥을 사다!
         </Typography>
@@ -74,7 +88,7 @@ export default function RecipeReviewCard() {
         <Typography paragraph>
         아이패드 + 매직키보드 조합으로 2년을 써왔어서 바로 적응할 줄 알았는데 생각보다 어려워서,, 차근차근 적응해나가면서 공부한 것들을 기록해보려 한다.
         </Typography>
-        <Typography paragraph>우선 내가 가지고 있는 애플 기기들<br/>
+        <Typography>우선 내가 가지고 있는 애플 기기들<br/>
         (2017.12 ~) iPhone XR 256GB<br/>
         (2019.07 ~) iPad pro 11in 64G<br/>
         </Typography>
@@ -92,7 +106,7 @@ export default function RecipeReviewCard() {
 
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography paragraph>
+          <Typography paragraph sx={{marginTop: 0}}>
             (2020.05 ~) AirPod pro <br/>
             (2020.09 ~) Apple Watch<br/>
             (2021.10 ~) iMAC 512GB (NEW!)<br/>
@@ -128,26 +142,49 @@ export default function RecipeReviewCard() {
                 </Typography>
         </CardContent>
       </Collapse>
-      <CardActions disableSpacing
-      >
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
-        </IconButton>
 
-        <IconButton aria-label="share">
-          <BookmarkBorderIcon />
-        </IconButton>
+      <Divider sx={{ml: 1, mr: 1}}/>
 
-        <IconButton aria-label="share">
-        <ModeCommentOutlinedIcon />
-        </IconButton>
+      <CardActions>
+      <Stack direction="row" spacing={14} sx={{m: 'auto'}}>
 
+          <div className="iconElement">
+          <Button aria-label="add to favorites" sx={{color: '#777'}}>
+          <FavoriteIcon/> <Typography variant="body1" sx={{ml: 0.8}}>{props.nLike}</Typography>
+          </Button>
+          </div>
+
+          <div className="iconElement" >
+        <Button aria-label="comment"sx={{color: '#777'}}>
+        <ModeCommentOutlinedIcon sx={{width: 22, pt: 0.2}}/><Typography variant="body1" sx={{ml: 0.8}}>{props.nComment}</Typography>
+        </Button>
+        </div>
+
+        <div className="iconElement">
+        <Button aria-label="share" sx={{color: '#777'}}>
+          <BookmarkBorderIcon /><Typography variant="body1" sx={{ml: 0.8}}>{props.nBookmark}</Typography>
+        </Button>
+        </div>
+
+      </Stack>
+        
+
+       
+
+
+        
       </CardActions>
+      <Divider sx={{ml: 1, mr: 1}}/>
+
+      {/* Comment */}
+      <Comments/>
+
       <br/>
 
       {/* <Divider /> */}
 
-    </Card>
+    </Paper>
+    </Box>
 
   );
 }

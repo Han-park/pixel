@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import ExploreGrid from "../components/ExploreGrid";
-import Tags from "../components/Tags";
+import Tags from "../components/explore/Tags";
 
 import Header from "../components/Header2";
 import ExploreMobileHeader from "../components/explore/ExploreMobileHeader";
@@ -14,12 +14,14 @@ import "./Pages.css";
 import Paper from '@mui/material/Paper';
 import BottomNav from "../components/BottomNav";
 
+import GlobalStyles from '@mui/material/GlobalStyles';
 
   
 
 export default function ExplorePage(props){
     return(
         <div>
+         <GlobalStyles styles={{ body: { backgroundColor: "#F0F2F5" } }} />
             <div className="ExploreMobileHeader">
                 <ExploreMobileHeader />
             </div>
@@ -34,7 +36,7 @@ export default function ExplorePage(props){
                     </div>
                 <div className="exploreFeedContainer">
                     <ExploreGrid
-                        ml={35}
+                        ml={28}
                         md={4}
                         sm={6}
                         xs={12}

@@ -20,7 +20,7 @@ import Fade from '@mui/material/Fade';
 import PropTypes from 'prop-types';
 import Dialog from '@mui/material/Dialog';
 
-import Trending from "../Trending";
+import Trending from "./Trending";
 
 
 function SimpleDialog(props) {
