@@ -6,31 +6,35 @@ import CardContent from '@mui/material/CardContent';
 
 import Typography from '@mui/material/Typography';
 
-import Image from "../../imgExample/p123456-1.png";
-
-import Comments from "../Comments";
-
 
 export default function PostBody(props){
-
 
 var render = [];
 var i = 0;
 
+
   for (i; i < props.data.item.description.length; i++){
     switch (props.data.item.description[i].type){
       case 'text':
+
+        const splitedArray = props.data.item.description[i].content.split('<br/>')      
+    
+
         render.push(
           <CardContent key={i} sx={{pb: 0, pt: 1}}>
-          <Typography paragraph>
-            <div dangerouslySetInnerHTML={{__html: props.data.item.description[i].content}} />
-          </Typography> </CardContent>
+          <Typography paragraph sx={{mt: 0, mb: 0}}>   
+
+            {splitedArray.map((string, index) => (
+                <div>{string}</div>
+            ))}
+              </Typography>
+              </CardContent>      
           );
       break;
 
       case 'image':
          render.push(
-          <CardMedia key={i} sx={{width: '500px', display: 'block', marginRight: 'auto', marginLeft: 'auto', objectFit: 'contain'}} component='img' image={props.data.item.description[i].content}/>
+          <CardMedia key={i} sx={{width: '500px', display: 'block', marginRight: 'auto', marginLeft: 'auto', objectFit: 'contain', mt: 2, mb: 2}} component='img' image={props.data.item.description[i].content}/>
           );
       break;
     }
