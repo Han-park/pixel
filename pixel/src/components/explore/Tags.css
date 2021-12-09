@@ -1,0 +1,21 @@
+.tagBox{
+    margin-top: 0px !important;
+    min-width: 180px;
+    max-width: 180px;
+    display: flex;
+    padding: 20px 10px;
+    position: fixed;
+    flex-direction: column;
+    background-color: #F7F9F9;
+    border-radius: 16px;
+}
+
+
+
+.title{
+    /* background-color: red; */
+    /* background-color: #F7F9F9; */
+    margin-bottom: 10px;
+    padding-left: 16px;
+    font-size: 18px;
+}

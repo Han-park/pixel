@@ -1,0 +1,18 @@
+.Feed{
+    /* flex: 0.4; */
+    /* flex-grow: 1; */
+    /* border-right: 1px solid #e0e0e0; */
+    padding-right: 8px;
+    min-width: fit-content;
+    white-space: normal;
+    overflow-y: auto;
+    position: fixed;
+    display: flex;
+    height: 100%;
+    /* max-width: 610px; */
+    min-width: 200px;
+    /* margin-top: -18px; */
+    flex-direction: column;
+    /* margin-left: 16px; */
+    min-height: 0;
+}

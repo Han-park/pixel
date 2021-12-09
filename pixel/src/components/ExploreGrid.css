@@ -1,0 +1,28 @@
+.GridBox{
+    /* flex: 0.4; */
+    /* flex-grow: 1; */
+    /* border: 1px solid red; */
+    /* margin-left: 280px; */
+    min-width: fit-content;
+    white-space: normal;
+    /* position: relative; */
+    display: flex;
+    height: 100%;
+    /* max-width: 592px; */
+    /* min-width: 200px; */
+    margin-top: 80px;
+    flex-direction: column;
+    /* margin-left: 16px; */
+    min-height: 0;
+}
+
+.Grid{
+    /* elevation: 10; */
+    border: 1px solid grey;
+}
+
+.GridContentBox:hover{
+    transition: transform 400ms;
+    transform: translateY(-14px);
+    box-shadow: 0 8px 16px grey;
+}
