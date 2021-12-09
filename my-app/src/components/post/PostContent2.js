@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
-import Card from '@mui/material/Card';
+
 import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
@@ -8,28 +8,36 @@ import CardActions from '@mui/material/CardActions';
 import Collapse from '@mui/material/Collapse';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import { red } from '@mui/material/colors';
-import FavoriteIcon from '@mui/icons-material/FavoriteBorder';
-import ModeCommentOutlinedIcon from '@mui/icons-material/ModeCommentOutlined';
-import IosShareOutlinedIcon from '@mui/icons-material/IosShareOutlined';
-import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
-import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import Stack from '@mui/material/Stack';
-
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
-
 import Link from '@mui/material/Link';
-
 import Divider from '@mui/material/Divider';
 
-import Image from "../imgExample/p123456-1.png";
+import FavoriteIcon from '@mui/icons-material/FavoriteBorder';
+import ModeCommentOutlinedIcon from '@mui/icons-material/ModeCommentOutlined';
+import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 
-import Hyo from "../imgExample/hyovatar.png";
+import Image from "../../imgExample/p123456-1.png";
+import Hyo from "../../imgExample/hyovatar.png";
 
-import Comments from "./Comments";
+import Comments from "../Comments";
+import PostBody from './postBody';
+import postData from "../../dataExample/postExample-1.json"; 
+
+// const title = "iMAC적응기(1) 아이맥을 사다!";
+const title = postData.item.title;
+const blogLink = postData.item.link;
+
+const blogName = "류효림의 블로그";
+const author = postData.item.author;
+const pubDate = postData.item.pubDate;
+const pubTimeBefore = "2h";
+
+const previewContent = "";
+const fullContent = "";
+
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -57,27 +65,36 @@ export default function RecipeReviewCard(props) {
     <Box>
     <Paper sx={{ borderRadius: 2, margin: 1, mt: 9, p: 2}} elevation="1"
       className="PostBox">
+
       <CardHeader sx={{marginTop: 2, marginBottom: -2}}
         avatar={
           <Avatar sx={{ width: 24, height: 24}} aria-label="recipe"  src={Hyo}/>
         }
         title={<Typography variant="body1" color="text.primary" sx={{ ml: -1}}>
-            효림 ∙ 2h
+            {author} ∙ {pubTimeBefore}
         </Typography>}
       />
         <CardContent>
         <Typography variant="h5" color="text.primary">
-        iMAC적응기(1) 아이맥을 사다!
+        {title}
         </Typography>
-        <Link href="#" underline="always" color="text.secondary" sx={{display: 'block', marginTop: '2px'}}>
-        류효림의 블로그
+        <Link href={blogLink} underline="always" color="text.secondary" sx={{display: 'block', marginTop: '2px'}}>
+        {blogName}
         </Link>
       </CardContent>
-      <CardMedia
+
+        {/* ********** 위에까지 Header *********** */}
+      <PostBody data={postData}/>
+
+        {/* Preview */}
+
+        {/* Button 누르면 PostBody 가져오기 */}
+
+      {/* <CardMedia
         sx={{width: '500px', display: 'block', marginRight: 'auto', marginLeft: 'auto', objectFit: 'contain'}}
         component="img"
         image={Image}
-        // alt="Paella dish"
+        
       />
       <CardContent>
         <Typography paragraph>
@@ -136,7 +153,9 @@ export default function RecipeReviewCard(props) {
 
                 </Typography>
         </CardContent>
-      </Collapse>
+      </Collapse> */}
+
+
 
       <Divider sx={{ml: 1, mr: 1}}/>
 
@@ -171,13 +190,10 @@ export default function RecipeReviewCard(props) {
       </CardActions>
       <Divider sx={{ml: 1, mr: 1}}/>
 
-      {/* Comment */}
+    
       <Comments/>
 
       <br/>
-
-      {/* <Divider /> */}
-
     </Paper>
     </Box>
 

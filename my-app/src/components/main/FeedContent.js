@@ -25,7 +25,7 @@ import Link from '@mui/material/Link';
 
 import Divider from '@mui/material/Divider';
 
-import Image from "../../imgExample/imacimg.png";
+import Image from "../../imgExample/p123456-1.png";
 import Hyo from "../../imgExample/hyovatar.png";
 
 import Comments from "../Comments";

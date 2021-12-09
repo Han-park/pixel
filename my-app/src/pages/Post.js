@@ -12,7 +12,7 @@ import Box from '@mui/material/Box';
 
 import MainMobileHeader from '../components/main/MainMobileHeader';
 import "./Pages.css";
-import PostContent from "../components/PostContent";
+import PostContent from "../components/post/PostContent2";
 
 import GlobalStyles from '@mui/material/GlobalStyles';
 import { maxWidth } from '@mui/system';
@@ -36,11 +36,10 @@ export default function MainPage(props){
             <MainMobileHeader />
         </div>
 
-        <Container maxWidth="md" className="container">
-                <div className="feedContainer" >
-                      <PostContent nLike={12} nComment={5} nBookmark={1} sx={{mt: 10}}/>
-                      
-                </div>
+        <Container maxWidth="md" className="container" >
+                <Box sx={{maxWidth: 660, mt: 10, ml: 'auto', mr: 'auto'}}>
+                      <PostContent nLike={12} nComment={5} nBookmark={1} />
+                </Box>
                 
         </Container>
 
