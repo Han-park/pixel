@@ -19,24 +19,22 @@ import FavoriteIcon from '@mui/icons-material/FavoriteBorder';
 import ModeCommentOutlinedIcon from '@mui/icons-material/ModeCommentOutlined';
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 
-import Image from "../../imgExample/p123456-1.png";
+
 import Hyo from "../../imgExample/hyovatar.png";
 
 import Comments from "../Comments";
-import PostBody from './postBody';
+
 import postData from "../../dataExample/postExample-1.json"; 
 
-// const title = "iMAC적응기(1) 아이맥을 사다!";
+
 const title = postData.item.title;
 const blogLink = postData.item.link;
 
-const blogName = "류효림의 블로그";
 const author = postData.item.author;
 const pubDate = postData.item.pubDate;
-const pubTimeBefore = "2h";
 
-const previewContent = "";
-const fullContent = "";
+const blogName = "류효림의 블로그";
+const pubTimeBefore = "2h";
 
 
 const ExpandMore = styled((props) => {
@@ -44,7 +42,6 @@ const ExpandMore = styled((props) => {
   return <Button {...other} />;
 })(({ theme, expand }) => ({
   display: !expand ? 'inline' : 'none',
-//   marginLeft: 'auto',
 }));
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -54,16 +51,107 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-export default function RecipeReviewCard(props) {
-  const [expanded, setExpanded] = React.useState(true);
+
+function PostRender(props){
+
+
+
+  var render = [];
+  var i = 0;
+  var j = 0;
+  
+    for (i; i < props.data.item.description.length; i++){
+      switch (props.data.item.description[i].type){
+        case 'text':
+  
+          const splitedArray = props.data.item.description[i].content.split('<br/>')      
+      
+  
+          render.push(
+            <CardContent key={i} component='text'>
+            <Typography paragraph sx={{mt: 0, mb: 0, pl: 2, pb: 2}}>   
+              {splitedArray.map((string, index) => (
+                  <div>{string}</div>
+              ))}
+              
+            </Typography>
+            </CardContent>      
+            );
+        break;
+  
+        case 'image':
+           render.push(
+            <CardMedia key={i} sx={{width: '500px',
+            display: 'block', marginRight: 'auto',
+            marginLeft: 'auto', objectFit: 'contain', mt: 2, mb: 2}}
+            component='img' image={props.data.item.description[i].content}/>
+            );
+        break;
+      }
+    }
+
+    if(props.state === "preview"){
+    
+    var Texts = render.filter(element => element.props.component === 'text');
+    var Imgs = render.filter(element => element.props.component === 'img');
+    var render = [];
+    var j = 0;
+
+      if(Imgs.length > 0){
+        for(j; j < 2 ; j++){
+         render.push(Texts[j]);
+        }
+          if(Imgs.length > 1){
+            render.push(props.btn);
+          }
+        render.push(Imgs[0]);
+        }else{
+        for(j; j < 5 ; j++){
+           render.push(Texts[j]);
+        }
+          if(Texts.length > 5){
+          render.push(props.btn);
+          }
+      }
+    }
+  
+      return(
+        <div>
+          {render}
+        </div>
+      );
+}
+
+
+export default function PostContent(props) {
+
+  function ExpandMoreButton(){
+    return(
+      <Collapse in={clicked === 'preview'}>
+        <ExpandMore
+  
+        onClick={handleExpandClick}
+        aria-expanded={clicked}
+        aria-label="show more"
+        sx={{fontSize: 16, color: '#349BF0', mt: -4}}
+        >
+        ... 더보기
+ 
+        </ExpandMore>
+      </Collapse>
+    );
+  } 
+
+  const [clicked, setClicked] = React.useState('preview');
 
   const handleExpandClick = () => {
-    setExpanded(!expanded);
+    setClicked('full');
   };
+
 
   return (
     <Box>
-    <Paper sx={{ borderRadius: 2, margin: 1, mt: 9, p: 2}} elevation="1"
+    <Paper sx={{ borderRadius: 2, margin: 1, mt: (props.mt), p: 2}} elevation="1"
       className="PostBox">
 
       <CardHeader sx={{marginTop: 2, marginBottom: -2}}
@@ -84,80 +172,16 @@ export default function RecipeReviewCard(props) {
       </CardContent>
 
         {/* ********** 위에까지 Header *********** */}
-      <PostBody data={postData}/>
 
-        {/* Preview */}
 
-        {/* Button 누르면 PostBody 가져오기 */}
 
-      {/* <CardMedia
-        sx={{width: '500px', display: 'block', marginRight: 'auto', marginLeft: 'auto', objectFit: 'contain'}}
-        component="img"
-        image={Image}
-        
-      />
-      <CardContent>
-        <Typography paragraph>
-        아이패드 + 매직키보드 조합으로 2년을 써왔어서 바로 적응할 줄 알았는데 생각보다 어려워서,, 차근차근 적응해나가면서 공부한 것들을 기록해보려 한다.
-        </Typography>
-        <Typography>우선 내가 가지고 있는 애플 기기들<br/>
-        (2017.12 ~) iPhone XR 256GB<br/>
-        (2019.07 ~) iPad pro 11in 64G<br/>
-        </Typography>
-      </CardContent>
-
-      <ExpandMore
-          expand={expanded}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="show more"
-          sx={{fontSize: 16, color: '#349BF0', ml: 1}}
-        >
-          더 읽기
-        </ExpandMore>
-
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-          <Typography paragraph sx={{marginTop: 0}}>
-            (2020.05 ~) AirPod pro <br/>
-            (2020.09 ~) Apple Watch<br/>
-            (2021.10 ~) iMAC 512GB (NEW!)<br/>
-            <br/>
-            윈도우 노트북도 함께 사용하다가 <br/>
-            코로나 이후 집에 있는 시간이 많아져서, 큰 화면을 보고싶어서, 예뻐서 구매하게 되었다.
-          </Typography>
-          <Typography paragraph>
-          초기 설정을 마치고 지금까지 느낀 점을 남길게! <br/>
-          <br/>
-        1. 트랙패드 사용하기..불편해
-        <br/>
-            내가 다한증이 있어서 손이 항상 촉촉하거든 그 상태로 트랙패드를 쓰려니 생각보다 마찰이 느껴지더라구
-            <br/>
-            마우스 옵션을 빼고 구입했었는데 이 문제 때문에 반품하고 재구매를 고려중이야 (일단 3주정도는 써보려구!)
-            <br/>  <br/>
-        2. 화면 커! 화질 좋아! 짱@!
-        <br/>
-            아이패드도 가장 큰 옵션이 아니라 11인치를 쓰고있어서 작은 화면이라고 생각 안하고 있었는데
-            <br/>
-            아이맥 쓰다가 아이패드 보니까 어찌나 작던지,, 최고야 큰화면과 빵빵한 스피커!
-            <br/>  <br/>
-        3. 빠릿 빠릿
-        <br/>
-            아직 본격적인 프로그램들은 사용하지 않았지만 시간이 꽤 오래걸리던 롬리서치나 웹서핑에서 속도가 빨라졌음을 느꼈어 ! 
-            <br/>  <br/>
-        4. 일기를 다시 써야지
-        <br/>
-            iOS어플 중에 MOODA라는 귀여운 일기 어플이 있는데 맥 어플이 따로 지원되거든
-            <br/>
-            한동안 안쓰던 글 일기를 다시 쓸 것 같아
-
-                </Typography>
-        </CardContent>
-      </Collapse> */}
-
+      <PostRender data={postData}
+      state={clicked}
+      btn={<ExpandMoreButton/>}/>
 
 
       <Divider sx={{ml: 1, mr: 1}}/>
+
 
       <CardActions>
       <Stack direction="row" spacing={14} sx={{m: 'auto'}}>
@@ -181,13 +205,9 @@ export default function RecipeReviewCard(props) {
         </div>
 
       </Stack>
-        
-
-       
-
-
-        
+      
       </CardActions>
+
       <Divider sx={{ml: 1, mr: 1}}/>
 
     

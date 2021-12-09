@@ -38,7 +38,7 @@ export default function MainPage(props){
 
         <Container maxWidth="md" className="container" >
                 <Box sx={{maxWidth: 660, mt: 10, ml: 'auto', mr: 'auto'}}>
-                      <PostContent nLike={12} nComment={5} nBookmark={1} />
+                      <PostContent nLike={12} nComment={5} nBookmark={1} mt={9}/>
                 </Box>
                 
         </Container>
